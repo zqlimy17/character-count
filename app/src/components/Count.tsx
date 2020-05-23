@@ -42,7 +42,8 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
             {wordsArray.map((pair: any, index: number) => {
                 return (
                     <div key={index}>
-                        {pair[0]}: {pair[1]}
+                        {pair[0]}: {pair[1]}:{" "}
+                        {((pair[1] / wordCount) * 100).toFixed(0)}%
                     </div>
                 );
             })}
