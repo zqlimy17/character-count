@@ -8,21 +8,24 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
     const [wordCount, setWordCount] = useState<number>(0);
 
     useEffect(() => {
-        let wordLength = input.split(" ");
-        let characterLength = input.replace(/ /g, "");
+        let wordLength = input
+            .trim()
+            .split(" ")
+            .filter((word) => word.length > 0);
+        let characterLength = input.replace(/\n|\ /g, "");
         setWordCount(wordLength.length);
         setCharacterCount(characterLength.length);
         setCharacterWihtoutSpaces(input.length);
+        console.log(input);
     }, [input]);
 
     return (
         <div>
-            Count goes here
-            <h2>
+            <p>
                 Number of Characters: {characterCount} (with spaces:{" "}
                 {characterWihtoutSpaces})
-            </h2>
-            <h2>Number of Words: {wordCount}</h2>
+            </p>
+            <p>Number of Words: {wordCount}</p>
         </div>
     );
 };
