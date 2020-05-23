@@ -9,17 +9,26 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
     const [wordCount, setWordCount] = useState<number>(0);
     const [wordsArray, setWordsArray] = useState<any>([]);
     const [stopWords, setStopWords] = useState<string[]>(defaultStopWords);
+    const [stopWordsCount, setStopWordsCount] = useState<number>(0);
+    // let stopWordsCount: number = 0;
 
     useEffect(() => {
+        setStopWordsCount(0);
         let wordHash: any = {};
         let wordLength = input
             .trim()
             .split(" ")
             .filter((word) => word.length > 0);
         let characterLength = input.replace(/\n|\ /g, "");
+
         for (let i = 0; i < wordLength.length; i++) {
-            wordHash[wordLength[i]] = (wordHash[wordLength[i]] || 0) + 1;
+            if (!stopWords.includes(wordLength[i])) {
+                wordHash[wordLength[i]] = (wordHash[wordLength[i]] || 0) + 1;
+            } else {
+                setStopWordsCount((stopWordsCount) => stopWordsCount + 1);
+            }
         }
+
         let sortedHash = [];
         for (let w in wordHash) {
             sortedHash.push([w, wordHash[w]]);
@@ -32,7 +41,7 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
         setWordCount(wordLength.length);
         setCharacterCount(characterLength.length);
         setCharacterWihtoutSpaces(input.length);
-        console.log(stopWords);
+        console.log(wordCount - stopWordsCount);
     }, [input]);
 
     return (
@@ -45,7 +54,11 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
                 return (
                     <div key={index}>
                         {pair[0]}: {pair[1]}:{" "}
-                        {((pair[1] / wordCount) * 100).toFixed(0)}%
+                        {(
+                            (pair[1] / (wordCount - stopWordsCount)) *
+                            100
+                        ).toFixed(0)}
+                        %
                     </div>
                 );
             })}
