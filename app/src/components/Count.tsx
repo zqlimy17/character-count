@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { defaultStopWords } from "./stopwords";
 
 const Count: React.FC<{ input: string }> = ({ input }) => {
     const [characterWihtoutSpaces, setCharacterWihtoutSpaces] = useState<
@@ -7,6 +8,7 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
     const [characterCount, setCharacterCount] = useState<number>(0);
     const [wordCount, setWordCount] = useState<number>(0);
     const [wordsArray, setWordsArray] = useState<any>([]);
+    const [stopWords, setStopWords] = useState<string[]>(defaultStopWords);
 
     useEffect(() => {
         let wordHash: any = {};
@@ -30,7 +32,7 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
         setWordCount(wordLength.length);
         setCharacterCount(characterLength.length);
         setCharacterWihtoutSpaces(input.length);
-        console.log(sortedHash);
+        console.log(stopWords);
     }, [input]);
 
     return (
