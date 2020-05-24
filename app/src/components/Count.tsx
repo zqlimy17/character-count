@@ -15,14 +15,12 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
     useEffect(() => {
         setStopWordsCount(0);
         let wordHash: any = {};
-        let temp = input.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+        let temp = input.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, "");
         let numberOfWords = temp
             .trim()
             .split(/\n|\ /)
             .filter((word) => word.length > 0);
         setSpacesCount(temp.split(" ").length - 1);
-
-        let characterLength = input.replace(/\n|\ |\./g, "");
 
         for (let i = 0; i < numberOfWords.length; i++) {
             if (!stopWords.includes(numberOfWords[i].toLowerCase())) {
@@ -44,7 +42,7 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
         setWordsArray(sortedHash);
         setWordCount(numberOfWords.length);
         setCharacterWithSpaces(input.length);
-    }, [input]);
+    }, [input, stopWords]);
 
     return (
         <Container className='count'>

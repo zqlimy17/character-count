@@ -6,7 +6,9 @@ import TextField from "@material-ui/core/TextField";
 const WHEIGHT = window.innerHeight;
 
 const UserInput: React.FC = () => {
-    const [input, setInput] = useState<string>("");
+    const [input, setInput] = useState<string>(
+        localStorage.getItem("text") || ""
+    );
 
     const handleChange = (
         e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -15,7 +17,7 @@ const UserInput: React.FC = () => {
     };
     return (
         <Grid container>
-            <Grid xs={12} md={8} className='main'>
+            <Grid xs={12} md={8} className='main' item={true}>
                 <form noValidate autoComplete='off'>
                     <TextField
                         rows={(WHEIGHT - 80) / 21}
@@ -29,7 +31,7 @@ const UserInput: React.FC = () => {
                     />
                 </form>
             </Grid>
-            <Grid xs={12} md={4} className='count countBorder'>
+            <Grid xs={12} md={4} className='count countBorder' item={true}>
                 <Count input={input} />
             </Grid>
         </Grid>
