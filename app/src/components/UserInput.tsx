@@ -14,6 +14,7 @@ const UserInput: React.FC = () => {
         e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
     ) => {
         setInput(e.target.value);
+        localStorage.setItem("text", e.target.value);
     };
     return (
         <Grid container>
