@@ -29,8 +29,8 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
 
         for (let i = 0; i < numberOfWords.length; i++) {
             if (!stopWords.includes(numberOfWords[i].toLowerCase())) {
-                wordHash[numberOfWords[i]] =
-                    (wordHash[numberOfWords[i]] || 0) + 1;
+                wordHash[numberOfWords[i].toLowerCase()] =
+                    (wordHash[numberOfWords[i].toLowerCase()] || 0) + 1;
             } else {
                 setStopWordsCount((stopWordsCount) => stopWordsCount + 1);
             }
@@ -52,7 +52,7 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
     }, [input]);
 
     return (
-        <Container>
+        <Container className='count'>
             <div className='statistics'>
                 <h3>
                     Characters:{" "}
@@ -68,7 +68,7 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
                     <span className='statisticsSpan'>{spacesCount}</span>
                 </h3>
             </div>
-
+            <hr className='hr' />
             <h2>Word Density</h2>
             <ul>
                 {wordsArray.map((pair: any, index: number) => {
