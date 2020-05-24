@@ -3,8 +3,10 @@ import Count from "./Count";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 
+const WHEIGHT = window.innerHeight;
+
 const UserInput: React.FC = () => {
-    const [input, setInput] = useState<string>("lorem ipsum dolor sit amet");
+    const [input, setInput] = useState<string>("");
 
     const handleChange = (
         e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -16,13 +18,14 @@ const UserInput: React.FC = () => {
             <Grid xs={12} md={8}>
                 <form noValidate autoComplete='off'>
                     <TextField
-                        rows={40}
+                        rows={WHEIGHT / 24}
                         variant='filled'
                         autoFocus
                         fullWidth
                         onChange={(e) => handleChange(e)}
                         value={input}
                         multiline
+                        placeholder='Paste your text here.'
                     />
                 </form>
             </Grid>
