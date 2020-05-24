@@ -54,6 +54,7 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
     return (
         <Container className='count'>
             <div className='statistics'>
+                <h2>Counts</h2>
                 <h3>
                     Characters:{" "}
                     <span className='statisticsSpan'>
