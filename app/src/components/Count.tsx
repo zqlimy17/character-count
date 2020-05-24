@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Container from "@material-ui/core/Container";
+
 import { defaultStopWords } from "./stopwords";
 
 const Count: React.FC<{ input: string }> = ({ input }) => {
-    const [characterWihtoutSpaces, setCharacterWihtoutSpaces] = useState<
+    const [characterWithSpaces, setCharacterWithSpaces] = useState<number>(0);
+    const [characterWithoutSpaces, setCharacterWithoutSpaces] = useState<
         number
     >(0);
-    const [characterCount, setCharacterCount] = useState<number>(0);
     const [wordCount, setWordCount] = useState<number>(0);
     const [wordsArray, setWordsArray] = useState<any>([]);
     const [stopWords, setStopWords] = useState<string[]>(defaultStopWords);
     const [stopWordsCount, setStopWordsCount] = useState<number>(0);
-    // let stopWordsCount: number = 0;
 
     useEffect(() => {
         setStopWordsCount(0);
@@ -39,31 +42,39 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
 
         setWordsArray(sortedHash);
         setWordCount(wordLength.length);
-        setCharacterCount(characterLength.length);
-        setCharacterWihtoutSpaces(input.length);
+        setCharacterWithoutSpaces(characterLength.length);
+        setCharacterWithSpaces(input.length);
         console.log(wordCount - stopWordsCount);
     }, [input]);
 
     return (
-        <div>
-            <p>
-                Number of Characters: {characterCount} (with spaces:{" "}
-                {characterWihtoutSpaces})
-            </p>
-            {wordsArray.map((pair: any, index: number) => {
-                return (
-                    <div key={index}>
-                        {pair[0]}: {pair[1]}:{" "}
-                        {(
-                            (pair[1] / (wordCount - stopWordsCount)) *
-                            100
-                        ).toFixed(0)}
-                        %
-                    </div>
-                );
-            })}
-            <p>Number of Words: {wordCount}</p>
-        </div>
+        <Container>
+            <h3>Characters: {characterWithSpaces} </h3>
+            <h3>Words: {wordCount} </h3>
+            <h3>Sentences: </h3>
+            <h3>Paragraphs: </h3>
+            <h3>Spaces: {characterWithSpaces - characterWithoutSpaces}</h3>
+
+            <h2>Word Density</h2>
+            <ul>
+                {wordsArray.map((pair: any, index: number) => {
+                    return (
+                        <li key={index} className='density'>
+                            <span className='densityWord'>{pair[0]}</span>
+                            <span className='densityCount'> {pair[1]}</span>
+
+                            <span className='densityPercentage'>
+                                {(
+                                    (pair[1] / (wordCount - stopWordsCount)) *
+                                    100
+                                ).toFixed(0)}
+                                %
+                            </span>
+                        </li>
+                    );
+                })}
+            </ul>
+        </Container>
     );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Count from "./Count";
-import Input from "@material-ui/core/Input";
+import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 
 const UserInput: React.FC = () => {
@@ -12,19 +12,24 @@ const UserInput: React.FC = () => {
         setInput(e.target.value);
     };
     return (
-        <div>
-            <form noValidate autoComplete='off'>
-                <TextField
-                    variant='filled'
-                    autoFocus
-                    fullWidth
-                    onChange={(e) => handleChange(e)}
-                    value={input}
-                    multiline
-                />
-            </form>
-            <Count input={input} />
-        </div>
+        <Grid container>
+            <Grid xs={12} md={8}>
+                <form noValidate autoComplete='off'>
+                    <TextField
+                        rows={40}
+                        variant='filled'
+                        autoFocus
+                        fullWidth
+                        onChange={(e) => handleChange(e)}
+                        value={input}
+                        multiline
+                    />
+                </form>
+            </Grid>
+            <Grid xs={12} md={4}>
+                <Count input={input} />
+            </Grid>
+        </Grid>
     );
 };
 
