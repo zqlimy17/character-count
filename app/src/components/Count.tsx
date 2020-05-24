@@ -69,24 +69,27 @@ const Count: React.FC<{ input: string }> = ({ input }) => {
                 </h3>
             </div>
             <hr className='hr' />
-            <h2>Word Density</h2>
-            <ul>
-                {wordsArray.map((pair: any, index: number) => {
-                    return (
-                        <li key={index} className='density'>
-                            <span className='densityWord'>{pair[0]}</span>
-                            <span className='densityCount'> {pair[1]}</span>
-                            <span className='densityPercentage'>
-                                {(
-                                    (pair[1] / (wordCount - stopWordsCount)) *
-                                    100
-                                ).toFixed(0)}
-                                %
-                            </span>
-                        </li>
-                    );
-                })}
-            </ul>
+            <div className='tablee'>
+                <h2>Word Density</h2>
+                <ul>
+                    {wordsArray.map((pair: any, index: number) => {
+                        return (
+                            <li key={index} className='density'>
+                                <span className='densityWord'>{pair[0]}</span>
+                                <span className='densityCount'> {pair[1]}</span>
+                                <span className='densityPercentage'>
+                                    {(
+                                        (pair[1] /
+                                            (wordCount - stopWordsCount)) *
+                                        100
+                                    ).toFixed(0)}
+                                    %
+                                </span>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
         </Container>
     );
 };

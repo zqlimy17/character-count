@@ -15,10 +15,10 @@ const UserInput: React.FC = () => {
     };
     return (
         <Grid container>
-            <Grid xs={12} md={8}>
+            <Grid xs={12} md={8} className='main'>
                 <form noValidate autoComplete='off'>
                     <TextField
-                        rows={WHEIGHT / 24}
+                        rows={(WHEIGHT - 80) / 21}
                         variant='filled'
                         autoFocus
                         fullWidth

@@ -22,6 +22,9 @@
 }
 
 .count h2 {
+    color: tan !important;
+    margin: 5px 0px -5px 0px;
+
     background: lemonchiffon;
     padding: 0 !important;
     text-align: center;
@@ -42,6 +45,8 @@
 }
 
 .statisticsSpan {
+    text-align: center;
+    width: 20%;
     background: darkgoldenrod;
     border-radius: 5px;
     float: right;
@@ -90,4 +95,36 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+
+.main {
+    max-height: calc(100%-80px);
+    display: block;
+}
+
+.tablee {
+    background: lemonchiffon;
+    height: 64vh;
+    overflow-y: auto;
+}
+
+ul {
+    margin-right: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: darkgoldenrod;
+    border-radius: 10px;
 }
