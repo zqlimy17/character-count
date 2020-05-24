@@ -1,90 +1,94 @@
 * {
-  background-color: papayawhip;
-  font-family: 'Montserrat', sans-serif !important;
-  color: black !important;
-  /* outline: 1px solid gold;
+    background-color: papayawhip;
+    font-family: "Montserrat", sans-serif !important;
+    color: black !important;
+    /* outline: 1px solid gold;
   outline-offset: -1px; */
 }
 
 .hr {
-  border: 1px solid burlywood;
+    border: 1px solid burlywood;
 }
 
 .count {
-  background: lemonchiffon;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  padding-top: 10px;
+    background: lemonchiffon;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: 10px;
 }
 
 .countBorder {
-  box-shadow: 1px 1px 5px burlywood;
+    box-shadow: 1px 1px 5px burlywood;
 }
 
 .count h2 {
-  background: lemonchiffon;
-  padding: 0 !important;
-  text-align: center;
+    background: lemonchiffon;
+    padding: 0 !important;
+    text-align: center;
 }
 
-
 .statistics {
-  background: lemonchiffon;
+    background: lemonchiffon;
 
-  border-radius: 5px;
+    border-radius: 5px;
 }
 
 .statistics h3 {
-  background: lemonchiffon;
+    background: lemonchiffon;
 
-  border-radius: 5px;
-  background: tan !important;
-  padding-left: 5px;
-  margin: 5px;
+    border-radius: 5px;
+    background: tan !important;
+    padding-left: 5px;
+    margin: 5px;
 }
 
 .statisticsSpan {
-  background: darkgoldenrod;
-  border-radius: 5px;
-  float: right;
-  padding: 0px 5px;
-
+    background: darkgoldenrod;
+    border-radius: 5px;
+    float: right;
+    padding: 0px 5px;
 }
 
 ul {
-  background: lemonchiffon;
+    background: lemonchiffon;
 
-  padding: 0;
-  list-style-type: none;
+    padding: 0;
+    list-style-type: none;
 }
 
 .density {
-  background: tan;
-  border-radius: 5px;
-  font-weight: 900;
-  margin: 5px 0;
-
+    background: tan;
+    border-radius: 5px;
+    font-weight: 900;
+    margin: 5px 0;
 }
 
 .densityWord {
-  background: tan;
-  display: inline-block;
-  padding: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+    background: tan;
+    display: inline-block;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .densityPercentage {
-  background: tan;
-  float: right;
-  padding: 5px 10px;
-
+    background: tan;
+    float: right;
+    padding: 5px 10px;
 }
 
 .densityCount {
-  background: darkgoldenrod;
-  float: right;
-  padding: 5px 10px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+    background: darkgoldenrod;
+    float: right;
+    padding: 5px 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }

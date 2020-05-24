@@ -1,5 +1,7 @@
 import React from "react";
 import UserInput from "./components/UserInput";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedIn from "@material-ui/icons/LinkedIn";
 
 import Container from "@material-ui/core/Container";
 import "./App.css";
@@ -20,6 +22,14 @@ const App: React.FC = () => {
             <Container className='App' maxWidth='xl'>
                 <h1>Character Count</h1>
                 <UserInput />
+                <footer>
+                    <a href='https://www.linkedin.com/in/zqlimy/'>
+                        <LinkedIn />
+                    </a>{" "}
+                    <a href='https://github.com/zqlimy17/'>
+                        <GitHubIcon />
+                    </a>
+                </footer>
             </Container>
         </ThemeProvider>
     );
